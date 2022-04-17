@@ -1,5 +1,39 @@
 <%- include ('partials/head.ejs') %> <%- include ('partials/navbar.ejs') %>
 
-<h1 class="text-center">Bem-vindo a Main Page 🏃🏼‍♂️</h1>
+<div class="container">
+  <div class="mt-3 mb-5">
+    <h1 class="text-center display-3 mb-3">
+      Tem alguma dúvida? Use nossa plataforma de pergunta e respostas.
+    </h1>
+    <a href="/ask" class="d-block btn btn-lg btn-outline-dark">Perguntar</a>
+  </div>
+  <hr />
+  <div class="questions">
+    <h1 class="text-center">Perguntas</h1>
+    <% questionsTable.forEach(question => { %>
+    <div class="card my-4">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="card-title"><%= question.titulo %>&nbsp;</h5>
+          <button
+            id="q<%= question.id %>"
+            class="btn btn-sm btn-outline-success show-description-button p-1"
+          >
+            Detalhes
+          </button>
+        </div>
+        <div id="q<%= question.id %>" class="question-description">
+          <p class="card-text"><%= question.descricao %></p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="/pergunta/<%= question.id %>" class="btn btn-dark"
+          >Responder</a
+        >
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
 
 <%- include ('partials/scripts-footer.ejs') %>

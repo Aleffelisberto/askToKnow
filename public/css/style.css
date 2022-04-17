@@ -1,3 +1,18 @@
 body {
   background-color: rgb(250, 250, 250);
+  font-family: 'Dm Sans', sans-serif;
+}
+
+.container .questions .question-description,
+.container form .hidden-input-id {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.container .questions .question-description.show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  margin: 15px 0;
 }
